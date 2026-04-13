@@ -68,11 +68,25 @@ const STYLES = `
   .nav-base {
     position:fixed; top:0; left:0; right:0; z-index:100;
     transition:background .3s, box-shadow .3s, backdrop-filter .3s;
+    /* iOS safe area: push nav content below the notch/Dynamic Island */
+    padding-top: env(safe-area-inset-top);
   }
   .nav-scrolled {
     background:rgba(251,248,254,.88);
     backdrop-filter:blur(20px);
     box-shadow:0 1px 0 rgba(0,17,58,.08);
+  }
+
+  /* ── Mobile-only spacing fixes ── */
+  @media(max-width:768px){
+    /* Extra breathing room inside the nav bar row on small screens */
+    .nav-inner { padding-top:8px; padding-bottom:8px; }
+
+    /* Push hero content down so it doesn't sit flush behind the nav */
+    .hero-content { padding-bottom:72px; padding-top:40px; }
+
+    /* Badge pill — give it room above the h1 */
+    .hero-badge { margin-top:8px; }
   }
 
   /* Buttons */
@@ -515,7 +529,7 @@ export default function App() {
 
       {/* ═══ NAV ═══ */}
       <nav className={`nav-base ${scrolled ? 'nav-scrolled' : ''}`}>
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 24px', display:'flex', alignItems:'center', justifyContent:'space-between', height:68 }}>
+        <div className="nav-inner" style={{ maxWidth:1200, margin:'0 auto', padding:'0 24px', display:'flex', alignItems:'center', justifyContent:'space-between', height:68 }}>
           <a href="#" style={{ textDecoration:'none', display:'flex', alignItems:'center', gap:10 }}>
             <div style={{ width:36, height:36, background:C.secondary, borderRadius:8, display:'flex', alignItems:'center', justifyContent:'center' }}>
               <Globe size={20} color="#fff"/>
@@ -559,9 +573,9 @@ export default function App() {
       <section className="hero-section">
         <img className="hero-img" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80" alt="logistics"/>
         <div className="hero-gradient"/>
-        <div className="hero-content" style={{ maxWidth:1200, margin:'0 auto', padding:'0 24px 100px', width:'100%' }}>
+        <div className="hero-content" style={{ maxWidth:1200, margin:'0 auto', padding:'0 24px 100px', width:'100%', paddingTop:'max(80px, calc(68px + env(safe-area-inset-top) + 40px))' }}>
           <div style={{ maxWidth:680 }}>
-            <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(171,54,0,.2)', border:'1px solid rgba(171,54,0,.4)', borderRadius:6, padding:'6px 14px', marginBottom:24 }}>
+            <div className="hero-badge" style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(171,54,0,.2)', border:'1px solid rgba(171,54,0,.4)', borderRadius:6, padding:'6px 14px', marginBottom:24 }}>
               <span style={{ width:7, height:7, borderRadius:'50%', background:C.secondary, display:'inline-block' }}/>
               <span style={{ fontSize:'.8rem', color:'rgba(255,255,255,.9)', fontWeight:500, letterSpacing:'.06em', textTransform:'uppercase' }}>Логистика без границ</span>
             </div>
