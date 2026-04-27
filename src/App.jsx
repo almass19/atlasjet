@@ -799,7 +799,7 @@ export default function App() {
                 {[
                   { icon:<Phone size={20}/>, label:'Телефон', val:'+7 (777) 413-20-50', href:'tel:+77774132050' },
                   { icon:<MapPin size={20}/>, label:'Адрес', val:'Проспект Мангилик Ел, 45', href:null },
-                  { icon:<IconWhatsapp size={20}/>, label:'WhatsApp', val:'+7 (701) 123-45-67', href:'https://wa.me/77011234567' },
+                  { icon:<IconWhatsapp size={20}/>, label:'WhatsApp', val:'+7 (777) 413-20-50', href:'https://wa.me/77774132050' },
                 ].map(c => (
                   <div key={c.label} style={{ display:'flex', gap:16, alignItems:'flex-start' }}>
                     <div style={{ width:44, height:44, borderRadius:10, background:`${C.secondary}15`, display:'flex', alignItems:'center', justifyContent:'center', color:C.secondary, flexShrink:0 }}>
@@ -872,7 +872,7 @@ export default function App() {
                   onMouseLeave={e => e.currentTarget.style.background='rgba(255,255,255,.1)'}>
                   <IconInstagram size={17}/>
                 </a>
-                <a href="https://wa.me/77011234567" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/77774132050" target="_blank" rel="noopener noreferrer"
                   style={{ width:36, height:36, borderRadius:8, background:'rgba(255,255,255,.1)', display:'flex', alignItems:'center', justifyContent:'center', color:'rgba(255,255,255,.7)', textDecoration:'none', transition:'background .2s' }}
                   onMouseEnter={e => e.currentTarget.style.background='rgba(255,255,255,.2)'}
                   onMouseLeave={e => e.currentTarget.style.background='rgba(255,255,255,.1)'}>
