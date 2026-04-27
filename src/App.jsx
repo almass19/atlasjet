@@ -718,7 +718,7 @@ export default function App() {
               <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))', gap:16, borderTop:'1px solid rgba(255,255,255,.1)', paddingTop:28 }}>
                 {[
                   { label:'Отправление', val:'Шанхай, CN' },
-                  { label:'Назначение', val:'Алматы, KZ' },
+                  { label:'Назначение', val:'Астана, KZ' },
                   { label:'Прибытие', val:'12 апр · 14:30' },
                   { label:'Вес', val:'840 кг' },
                 ].map(d => (
@@ -743,7 +743,7 @@ export default function App() {
                 8 лет строим логистику, которой доверяют
               </h2>
               <p style={{ color:C.muted, lineHeight:1.8, marginBottom:20 }}>
-                AtlasJet — казахстанская логистическая компания с офисами в Алматы, Шанхае и Варшаве. Мы специализируемся на импортных поставках для среднего и крупного бизнеса.
+                AtlasJet — казахстанская логистическая компания с офисами в Астане, Шанхае и Варшаве. Мы специализируемся на импортных поставках для среднего и крупного бизнеса.
               </p>
               <p style={{ color:C.muted, lineHeight:1.8, marginBottom:36 }}>
                 Наша команда из 120+ специалистов ежедневно обрабатывает более 200 отправлений, обеспечивая прозрачность на каждом этапе цепочки поставок.
@@ -912,7 +912,7 @@ export default function App() {
           </div>
           <div style={{ borderTop:'1px solid rgba(255,255,255,.1)', paddingTop:24, display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:12 }}>
             <p style={{ fontSize:'.85rem' }}>© 2024 AtlasJet. Все права защищены.</p>
-            <p style={{ fontSize:'.85rem' }}>Алматы, Казахстан</p>
+            <p style={{ fontSize:'.85rem' }}>Астана, Казахстан</p>
           </div>
         </div>
       </footer>
