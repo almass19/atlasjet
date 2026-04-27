@@ -797,8 +797,8 @@ export default function App() {
               <p style={{ color:C.muted, lineHeight:1.7, marginBottom:40 }}>Расскажите о вашем проекте — мы подберём оптимальный маршрут и условия.</p>
               <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
                 {[
-                  { icon:<Phone size={20}/>, label:'Телефон', val:'+7 (727) 123-45-67', href:'tel:+77271234567' },
-                  { icon:<MapPin size={20}/>, label:'Адрес', val:'Алматы, ул. Достык 12, офис 501', href:null },
+                  { icon:<Phone size={20}/>, label:'Телефон', val:'+7 (777) 413-20-50', href:'tel:+77774132050' },
+                  { icon:<MapPin size={20}/>, label:'Адрес', val:'Проспект Мангилик Ел, 45', href:null },
                   { icon:<IconWhatsapp size={20}/>, label:'WhatsApp', val:'+7 (701) 123-45-67', href:'https://wa.me/77011234567' },
                 ].map(c => (
                   <div key={c.label} style={{ display:'flex', gap:16, alignItems:'flex-start' }}>
@@ -902,9 +902,9 @@ export default function App() {
             </div>
             <div>
               <h4 className="font-manrope" style={{ color:'#fff', fontWeight:700, marginBottom:16, fontSize:'.95rem' }}>Связь</h4>
-              <p style={{ fontSize:'.9rem', marginBottom:8 }}>+7 (727) 123-45-67</p>
+              <p style={{ fontSize:'.9rem', marginBottom:8 }}>+7 (777) 413-20-50</p>
               <p style={{ fontSize:'.9rem', marginBottom:8 }}>info@atlasjet.kz</p>
-              <p style={{ fontSize:'.9rem' }}>Алматы, ул. Достык 12</p>
+              <p style={{ fontSize:'.9rem' }}>Проспект Мангилик Ел, 45</p>
               <button className="btn-primary" style={{ marginTop:20, padding:'10px 20px', fontSize:'.85rem' }} onClick={() => setCalcOpen(true)}>
                 Рассчитать стоимость
               </button>
