@@ -168,6 +168,7 @@ const STYLES = `
   .bento-c2 { grid-column:span 5; }
   .bento-c3 { grid-column:span 5; }
   .bento-c4 { grid-column:span 7; }
+  .bento-full { grid-column:span 12; }
 
   /* Kinetic tracker */
   .tracker-bar {
@@ -295,7 +296,7 @@ function AnimCounter({ target, suffix = '', duration = 1800 }) {
 }
 
 /* ─── CalcModal ─── */
-const ROUTES = ['Китай', 'Европа', 'США', 'Россия', 'Другое'];
+const ROUTES = ['Россия', 'Казахстан'];
 const CARGO_TYPES = ['Генеральный груз', 'Опасные грузы', 'Скоропортящиеся', 'Крупногабаритный', 'Документы'];
 
 function CalcModal({ onClose }) {
@@ -322,7 +323,7 @@ function CalcModal({ onClose }) {
     return Object.keys(e).length === 0;
   };
 
-  const baseRate = { 'Китай': 3.2, 'Европа': 4.8, 'США': 5.5, 'Россия': 2.1, 'Другое': 4.0 };
+  const baseRate = { 'Россия': 2.1, 'Казахстан': 1.5 };
   const estimate = () => {
     const rate = baseRate[form.route] || 3.5;
     const w = +form.weight; const v = +form.volume;
@@ -477,32 +478,11 @@ export default function App() {
 
   const BENTO = [
     {
-      title:'Авиаперевозки',
-      desc:'Срочная доставка по всему миру от 3 дней',
-      img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80',
-      cls:'bento-c1',
-      icon:<Globe size={22}/>,
-    },
-    {
-      title:'Морские перевозки',
-      desc:'FCL и LCL контейнеры из Китая и Европы',
-      img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80',
-      cls:'bento-c2',
-      icon:<Package size={22}/>,
-    },
-    {
       title:'Автомобильные перевозки',
       desc:'Сборные и полные грузы по СНГ',
       img:'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=700&q=80',
-      cls:'bento-c3',
+      cls:'bento-full',
       icon:<Truck size={22}/>,
-    },
-    {
-      title:'Таможенное оформление',
-      desc:'Полный цикл: декларирование, сертификация, брокерские услуги',
-      img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80',
-      cls:'bento-c4',
-      icon:<FileCheck size={22}/>,
     },
   ];
 
@@ -515,8 +495,6 @@ export default function App() {
   ];
 
   const FAQ = [
-    { q:'Сколько времени занимает доставка из Китая?', a:'Авиаперевозки — от 5 до 10 рабочих дней. Морские контейнеры — от 35 до 55 дней в зависимости от порта отправления и типа контейнера. Автоперевозки — от 18 до 25 дней.' },
-    { q:'Работаете ли вы с опасными грузами?', a:'Да, мы работаем с грузами классов опасности 3–9 при наличии необходимой документации. Наши специалисты помогут подготовить все разрешительные документы.' },
     { q:'Как происходит таможенное оформление?', a:'Наши сертифицированные брокеры берут на себя весь процесс: подготовку деклараций, сертификатов соответствия и разрешительных документов. Вам не нужно вникать в бюрократические детали.' },
     { q:'Есть ли страхование груза?', a:'Да, мы предлагаем страхование грузов от всех рисков с покрытием до 100% стоимости товара. Страховка оформляется автоматически по запросу.' },
     { q:'Можно ли отследить груз онлайн?', a:'Конечно. После оформления заявки вы получите личный кабинет с GPS-трекингом в реальном времени и уведомлениями на WhatsApp на каждом этапе.' },
@@ -585,7 +563,7 @@ export default function App() {
               мира
             </h1>
             <p style={{ fontSize:'1.1rem', color:'rgba(255,255,255,.72)', lineHeight:1.7, marginBottom:40, maxWidth:520 }}>
-              Китай, Европа, США — мы обеспечиваем надёжную логистику с таможенным сопровождением и GPS-трекингом для бизнеса в Казахстане.
+              Казахстан, Россия — мы обеспечиваем надёжную логистику с таможенным сопровождением для бизнеса.
             </p>
             <div style={{ display:'flex', flexWrap:'wrap', gap:12 }}>
               <button className="btn-primary" style={{ fontSize:'1rem', padding:'16px 32px' }} onClick={() => setCalcOpen(true)}>
@@ -604,9 +582,7 @@ export default function App() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'48px 24px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))', gap:32 }}>
           {[
             { val:1200, suffix:'+', label:'Клиентов' },
-            { val:47,   suffix:'',  label:'Стран' },
             { val:98,   suffix:'%', label:'Довольных' },
-            { val:8,    suffix:'+', label:'Лет опыта' },
           ].map(s => (
             <div key={s.label} style={{ textAlign:'center' }}>
               <div className="font-manrope" style={{ fontSize:'2.8rem', fontWeight:900, color:'#fff', lineHeight:1 }}>
@@ -740,13 +716,13 @@ export default function App() {
             <div>
               <p style={{ color:C.secondary, fontWeight:700, fontSize:'.85rem', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:16 }}>О компании</p>
               <h2 className="font-manrope" style={{ fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:800, color:C.primary, letterSpacing:'-.02em', marginBottom:24 }}>
-                8 лет строим логистику, которой доверяют
+                Несколько лет строим логистику, которой доверяют
               </h2>
               <p style={{ color:C.muted, lineHeight:1.8, marginBottom:20 }}>
-                AtlasJet — казахстанская логистическая компания с офисами в Астане, Шанхае и Варшаве. Мы специализируемся на импортных поставках для среднего и крупного бизнеса.
+                AtlasJet — казахстанская логистическая компания с офисом в Астане. Мы специализируемся на импортных поставках для среднего и крупного бизнеса.
               </p>
               <p style={{ color:C.muted, lineHeight:1.8, marginBottom:36 }}>
-                Наша команда из 120+ специалистов ежедневно обрабатывает более 200 отправлений, обеспечивая прозрачность на каждом этапе цепочки поставок.
+                Наши специалисты ежедневно обрабатывают более 200 отправлений, обеспечивая прозрачность на каждом этапе цепочки поставок.
               </p>
               <div style={{ display:'flex', gap:16, flexWrap:'wrap' }}>
                 <button className="btn-primary" onClick={() => setCalcOpen(true)}>Получить предложение</button>
