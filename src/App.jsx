@@ -581,7 +581,7 @@ export default function App() {
       <section style={{ background:C.primary }}>
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'48px 24px', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))', gap:32 }}>
           {[
-            { val:1200, suffix:'+', label:'Клиентов' },
+            { val:500, suffix:'+', label:'Клиентов' },
             { val:98,   suffix:'%', label:'Довольных' },
           ].map(s => (
             <div key={s.label} style={{ textAlign:'center' }}>
@@ -655,60 +655,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ═══ KINETIC TRACKER ═══ */}
-      <section id="tracker" style={{ background:C.primary, padding:'96px 24px' }}>
-        <div style={{ maxWidth:1200, margin:'0 auto' }}>
-          <Reveal>
-            <div style={{ textAlign:'center', marginBottom:64 }}>
-              <p style={{ color:C.secondary, fontWeight:700, fontSize:'.85rem', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:12 }}>GPS-трекинг</p>
-              <h2 className="font-manrope" style={{ fontSize:'clamp(2rem,4vw,3rem)', fontWeight:800, color:'#fff', letterSpacing:'-.02em', marginBottom:16 }}>Следите за грузом онлайн</h2>
-              <p style={{ color:'rgba(255,255,255,.6)', maxWidth:480, margin:'0 auto', lineHeight:1.7 }}>Каждое отправление отслеживается в реальном времени. Уведомления на WhatsApp на каждом этапе пути.</p>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <div style={{ background:'rgba(255,255,255,.06)', backdropFilter:'blur(20px)', borderRadius:20, padding:'40px 48px' }}>
-              {/* Demo tracker */}
-              <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:12, flexWrap:'wrap', gap:8 }}>
-                <div>
-                  <span style={{ color:'rgba(255,255,255,.5)', fontSize:'.8rem' }}>Номер накладной</span>
-                  <p className="font-manrope" style={{ color:'#fff', fontWeight:700, fontSize:'1.1rem', marginTop:2 }}>AJ-2024-08741</p>
-                </div>
-                <div style={{ display:'flex', alignItems:'center', gap:8, background:'rgba(171,54,0,.2)', border:'1px solid rgba(171,54,0,.35)', borderRadius:6, padding:'6px 14px' }}>
-                  <div className="tracker-pulse"/>
-                  <span style={{ color:C.secondary, fontSize:'.85rem', fontWeight:600 }}>В пути</span>
-                </div>
-              </div>
-              <div style={{ position:'relative', margin:'32px 0' }}>
-                <div className="tracker-bar"/>
-                <div style={{ display:'flex', justifyContent:'space-between', marginTop:20 }}>
-                  {TRACKER_STEPS.map((s, i) => (
-                    <div key={s.label} style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:6 }}>
-                      <div style={{ width:18, height:18, borderRadius:'50%', background: s.done ? C.secondary : 'rgba(255,255,255,.2)', display:'flex', alignItems:'center', justifyContent:'center' }}>
-                        {s.done && <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
-                      </div>
-                      <span style={{ fontSize:'.78rem', color: s.done ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.35)', fontWeight: s.done ? 600 : 400 }}>{s.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))', gap:16, borderTop:'1px solid rgba(255,255,255,.1)', paddingTop:28 }}>
-                {[
-                  { label:'Отправление', val:'Шанхай, CN' },
-                  { label:'Назначение', val:'Астана, KZ' },
-                  { label:'Прибытие', val:'12 апр · 14:30' },
-                  { label:'Вес', val:'840 кг' },
-                ].map(d => (
-                  <div key={d.label}>
-                    <p style={{ color:'rgba(255,255,255,.4)', fontSize:'.78rem', marginBottom:4 }}>{d.label}</p>
-                    <p className="font-manrope" style={{ color:'#fff', fontWeight:700 }}>{d.val}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ═══ ABOUT ═══ */}
       <section id="about" style={{ background:C.surface, padding:'96px 24px' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))', gap:64, alignItems:'center' }}>
@@ -716,13 +662,13 @@ export default function App() {
             <div>
               <p style={{ color:C.secondary, fontWeight:700, fontSize:'.85rem', letterSpacing:'.1em', textTransform:'uppercase', marginBottom:16 }}>О компании</p>
               <h2 className="font-manrope" style={{ fontSize:'clamp(2rem,4vw,2.8rem)', fontWeight:800, color:C.primary, letterSpacing:'-.02em', marginBottom:24 }}>
-                Несколько лет строим логистику, которой доверяют
+                Строим логистику, которой доверяют
               </h2>
               <p style={{ color:C.muted, lineHeight:1.8, marginBottom:20 }}>
                 AtlasJet — казахстанская логистическая компания с офисом в Астане. Мы специализируемся на импортных поставках для среднего и крупного бизнеса.
               </p>
               <p style={{ color:C.muted, lineHeight:1.8, marginBottom:36 }}>
-                Наши специалисты ежедневно обрабатывают более 200 отправлений, обеспечивая прозрачность на каждом этапе цепочки поставок.
+                Наши специалисты ежедневно обрабатывают множество отправлений, обеспечивая прозрачность на каждом этапе цепочки поставок.
               </p>
               <div style={{ display:'flex', gap:16, flexWrap:'wrap' }}>
                 <button className="btn-primary" onClick={() => setCalcOpen(true)}>Получить предложение</button>
@@ -737,7 +683,7 @@ export default function App() {
               </div>
               <div style={{ position:'absolute', bottom:-20, right:-20, background:C.secondary, borderRadius:16, padding:'20px 24px', boxShadow:'0 16px 48px rgba(171,54,0,.35)' }}>
                 <div className="font-manrope" style={{ fontSize:'2.2rem', fontWeight:900, color:'#fff', lineHeight:1 }}>
-                  <AnimCounter target={1200} suffix="+"/>
+                  <AnimCounter target={500} suffix="+"/>
                 </div>
                 <div style={{ color:'rgba(255,255,255,.8)', fontSize:'.85rem', marginTop:4 }}>довольных клиентов</div>
               </div>
@@ -840,7 +786,7 @@ export default function App() {
                 </div>
                 <span className="font-manrope" style={{ fontWeight:800, fontSize:'1.1rem', color:'#fff' }}>AtlasJet</span>
               </div>
-              <p style={{ lineHeight:1.7, fontSize:'.9rem', maxWidth:220 }}>Логистическая компания в Казахстане. Доставка из Китая, Европы и США.</p>
+              <p style={{ lineHeight:1.7, fontSize:'.9rem', maxWidth:220 }}>Логистическая компания в Казахстане. Доставка из России.</p>
               <div style={{ display:'flex', gap:12, marginTop:20 }}>
                 <a href="https://instagram.com/atlasjet.kz" target="_blank" rel="noopener noreferrer"
                   style={{ width:36, height:36, borderRadius:8, background:'rgba(255,255,255,.1)', display:'flex', alignItems:'center', justifyContent:'center', color:'rgba(255,255,255,.7)', textDecoration:'none', transition:'background .2s' }}
@@ -858,7 +804,7 @@ export default function App() {
             </div>
             <div>
               <h4 className="font-manrope" style={{ color:'#fff', fontWeight:700, marginBottom:16, fontSize:'.95rem' }}>Услуги</h4>
-              {['Авиаперевозки','Морские перевозки','Автоперевозки','Таможенное оформление','Страхование грузов'].map(l => (
+              {['Автоперевозки','Таможенное оформление','Страхование грузов'].map(l => (
                 <a key={l} href="#services" style={{ display:'block', color:'rgba(255,255,255,.55)', textDecoration:'none', marginBottom:10, fontSize:'.9rem', transition:'color .2s' }}
                   onMouseEnter={e => e.currentTarget.style.color='#fff'}
                   onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,.55)'}>
